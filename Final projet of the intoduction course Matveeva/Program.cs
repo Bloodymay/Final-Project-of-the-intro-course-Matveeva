@@ -1,11 +1,6 @@
-﻿using System;
-
-namespace ConsoleApp8
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
+﻿
+    
+    
       // Ввод строк с клавиатуры
       // и образование нового массива
 
@@ -14,7 +9,7 @@ namespace ConsoleApp8
       int count; // текущее количество строк в массиве
       string s;
       string[] array2; // дополнительная переменная-ссылка - сохраняет старый массив строк
-
+      
       // 2. Цикл ввода строк
       Console.WriteLine("Введите строки,для окончания ввода введите пустую строку:");
 
@@ -52,7 +47,15 @@ namespace ConsoleApp8
     //   for (int i = 0; i < AS.Length; i++)
     //     Console.WriteLine("AS[{0}] = {1}", i, AS[i]);
     //   Console.ReadKey();
-    }
-  }
+    int countOfSearchStr=0;
+    string [] searchStrArr = new string [countOfSearchStr];
+
+for (int i = 0; i < array.Length; i++)
+if (array[i].Length<=3) 
+
+{
+ Console.WriteLine(i);// countOfSearchStr++;
 }
-  
+
+//  Console.WriteLine(countOfSearchStr);
+    
