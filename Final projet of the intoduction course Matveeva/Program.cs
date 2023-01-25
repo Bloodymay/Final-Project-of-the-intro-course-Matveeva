@@ -1,61 +1,59 @@
-﻿
-    
-    
-      // Ввод строк с клавиатуры
-      // и образование нового массива
+﻿// 1. Объявление переменных
+string[] array; // ссылка на массив строк
+int count; // текущее количество строк в массиве
+string s;
+string[] array2; // дополнительная переменная-ссылка - сохраняет старый массив строк
+int countOfSearchStr = 0;
 
-      // 1. Объявление переменных
-      string[] array; // ссылка на массив строк
-      int count; // текущее количество строк в массиве
-      string s;
-      string[] array2; // дополнительная переменная-ссылка - сохраняет старый массив строк
-      
-      // 2. Цикл ввода строк
-      Console.WriteLine("Введите строки,для окончания ввода введите пустую строку:");
+int j = 0;
+// 2. Цикл ввода строк
+Console.WriteLine("Введите строки,для окончания ввода введите пустую строку:");
 
-      count = 0; // обнулить количество строк
-      array = new string[count]; // выделить память для 0 строк
+count = 0; // обнулить количество строк
+array = new string[count]; // выделить память для массива
 
-      do
-      {
-        // Ввести строку
-        s = Console.ReadLine();
+do
+{
+    // Ввести строку
+    s = Console.ReadLine();
 
-        // Проверка, пустая ли строка
-        if (s!="")
-        {
-          // если строка не пустая, то добавить строку в массив
-          count++;
+    // Проверка, пустая ли строка
+    if (s != "")
+    {
+        // если строка не пустая, то добавить строку в массив
+        count++;
 
-          // предварительно выделить память для нового массива
-          // в котором на 1 элемент больше
-          array2 = new string[count];
+        // предварительно выделить память для нового массива
+        // в котором на 1 элемент больше
+        array2 = new string[count];
 
-          // скопировать старый массив в новый
-          for (int i = 0; i < array2.Length - 1; i++)
+        // скопировать старый массив в новый
+        for (int i = 0; i < array2.Length - 1; i++)
             array2[i] = array[i];
 
-          // добавить последнюю введенную строку в массив AS2
-          array2[count - 1] = s;
+        // добавить последнюю введенную строку в массив array2
+        array2[count - 1] = s;
 
-          // перенаправить ссылку AS на AS2
-          array = array2;
-        }
-      } while (s != "");
+        // перенаправить ссылку array на array2
+        array = array2;
+    }
+} while (s != "");
 
-    //   // 3. Вывод массива строк:
-    //   for (int i = 0; i < AS.Length; i++)
-    //     Console.WriteLine("AS[{0}] = {1}", i, AS[i]);
-    //   Console.ReadKey();
-    int countOfSearchStr=0;
-    string [] searchStrArr = new string [countOfSearchStr];
+//Считаем количество коротких элементов в массиве
+for (int i = 0; i < array.Length; i++)
+{    if (array[i].Length <= 3) //нахождение элементов массива,имеющих 3 или < знаков
+    {
+        countOfSearchStr++;// подсчет количества таких элементов
+    }
+}
+string[] searchStrArr = new string[countOfSearchStr];
 
 for (int i = 0; i < array.Length; i++)
-if (array[i].Length<=3) 
+    if (array[i].Length <= 3) //нахождение элементов массива,имеющих 3 или < знаков
 
-{
- Console.WriteLine(i);// countOfSearchStr++;
-}
+    {
+        searchStrArr[j] = array[i]; //запись элементов в новый массив
+        j++;
+    }
 
-//  Console.WriteLine(countOfSearchStr);
-    
+Console.WriteLine(string.Join(", ",searchStrArr));//вывод массива в консоль
