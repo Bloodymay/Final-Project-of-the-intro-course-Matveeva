@@ -40,10 +40,15 @@ void PrintStringArray(string[] arr)
 { 
     Console.Write("["); 
     for (int i = 0; i < arr.Length-1 ; i++) 
-    { 
+    {   
+         bool x = false;
+        if (x == true)
+        {
+            Console.Write(arr[i] + ", ");
+        }
         if (arr[i].Length <= 3) 
         { 
-            Console.Write(arr[i] + ", "); 
+            Console.Write(", " + arr[i]  ); 
             
         } 
         
