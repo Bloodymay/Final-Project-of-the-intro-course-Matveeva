@@ -38,26 +38,24 @@ void PrintData(string res, string[] arr)
 // Метод печатает одномерный массив 
 void PrintStringArray(string[] arr)
 {
+    bool x = false;
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
-    
-    {   
+    { 
         
-        bool x = false;
-        if ( x == true)
-        {
-          Console.Write(arr[i]);  
-        }
         
-        if (arr[i].Length <= 3)
+        if ((arr[i].Length <= 3)&&(x))
         {
 
             Console.Write(", "+ arr[i] );
         }
-        
+        if ((arr[i].Length <= 3)&&( x == false))
+        {
+          x=true;
+          Console.Write(arr[i]);  
+        }
 
     }
     Console.Write("]");
 }
-
 
