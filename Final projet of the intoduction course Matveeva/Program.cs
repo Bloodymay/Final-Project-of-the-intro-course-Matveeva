@@ -55,5 +55,6 @@ for (int i = 0; i < array.Length; i++)
         searchStrArr[j] = array[i]; //запись элементов в новый массив
         j++;
     }
-
-Console.WriteLine(string.Join(", ",searchStrArr));//вывод массива в консоль
+Console.Write("[ ");
+Console.Write(string.Join(", ",searchStrArr));//вывод массива в консоль
+Console.Write(" ]");
